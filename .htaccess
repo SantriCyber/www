@@ -1,0 +1,76 @@
+# Enable compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+</IfModule>
+
+# Enable browser caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/x-ms-bmp "access plus 1 year"
+
+    # CSS and JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+
+    # Fonts
+    ExpiresByType font/opentype "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType application/x-font-ttf "access plus 1 year"
+    ExpiresByType application/x-font-opentype "access plus 1 year"
+
+    # Default
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Set caching headers
+<IfModule mod_headers.c>
+    # Cache images for 1 year
+    <FilesMatch "\.(jpg|jpeg|png|gif|ico|svg|webp)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    # Cache CSS/JS for 1 month
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+
+    # Cache fonts for 1 year
+    <FilesMatch "\.(eot|otf|ttf|woff|woff2|svg)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    # Don't cache HTML
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "max-age=3600, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Secure htaccess
+<FilesMatch "^\.ht">
+    Deny from all
+</FilesMatch>

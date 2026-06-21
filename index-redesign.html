@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SantriCyber - Official | Islamic & Tech Learning Hub - Programming, Cybersecurity, AI</title>
+
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="SantriCyber is a community for Santri and tech enthusiasts to share and learn about Islam, programming, cybersecurity, and technology. #SantriCyber.">
+    <meta name="keywords" content="SantriCyber, Islamic Tech, Programming, Cybersecurity, Ethical Hacking, AI, Machine Learning">
+    <meta name="author" content="SantriCyber">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#7cc576">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SantriCyber - Official | Islamic & Tech Learning Hub">
+    <meta property="og:description" content="Join SantriCyber to explore programming, cybersecurity, AI, and Islamic knowledge.">
+    <meta property="og:url" content="https://santri.dev/">
+    <meta property="og:image" content="https://santri.dev/assets/img/SantriCyberLogo.png">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="395">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SantriCyber - Official | Islamic & Tech Learning Hub">
+    <meta name="twitter:description" content="Join SantriCyber community today.">
+    <meta name="twitter:image" content="https://santri.dev/assets/img/SantriCyberLogo.png">
+    <meta name="twitter:site" content="@SantriCyber">
+    <meta name="twitter:creator" content="@SantriCyber">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://santri.dev/">
+    <link rel="icon" type="image/png" href="https://santri.dev/assets/img/SantriCyberLogo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Motion.dev for Animations -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@latest"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .text-accent {
+            color: #7cc576;
+        }
+
+        .bg-accent {
+            background-color: #7cc576;
+        }
+
+        .btn-primary {
+            @apply px-8 py-3 bg-accent text-white font-semibold rounded transition-all duration-300 hover:bg-green-700 hover:shadow-lg;
+        }
+
+        .btn-secondary {
+            @apply px-8 py-3 border-2 border-accent text-accent font-semibold rounded transition-all duration-300 hover:bg-accent hover:text-white;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://santri.dev/#organization",
+        "name": "SantriCyber",
+        "url": "https://santri.dev/",
+        "logo": "https://santri.dev/assets/img/SantriCyberLogo.png",
+        "description": "SantriCyber is a community for Santri and tech enthusiasts",
+        "foundingDate": "2007",
+        "sameAs": [
+          "https://twitter.com/SantriCyber",
+          "https://github.com/SantriCyber",
+          "https://youtube.com/@SantriCyberdev",
+          "https://facebook.com/santricyber.dev"
+        ]
+      }
+    ]
+    </script>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full bg-white shadow-sm z-50" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <img src="assets/img/SantriCyberSmall.png" alt="SantriCyber Logo" class="h-12" loading="eager" fetchpriority="high">
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#hero" class="nav-link text-gray-700 hover:text-accent transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-accent transition-colors">About</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-accent transition-colors">Services</a>
+                    <a href="#why" class="nav-link text-gray-700 hover:text-accent transition-colors">Why Us</a>
+                    <a href="https://forum.santricyber.dev" class="btn-primary" target="_blank">Join Forum</a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="md:hidden text-gray-700" id="mobileMenuToggle">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-white via-gray-50 to-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-8 fade-in">
+                <img src="assets/img/SantriCyberLogo.png" alt="SantriCyber" class="w-32 h-32 mx-auto mb-8" loading="eager">
+            </div>
+
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight fade-in">
+                Welcome to <span class="text-accent">SantriCyber</span>
+            </h1>
+
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed fade-in">
+                A community where Islamic knowledge meets cutting-edge technology. Learn programming, cybersecurity, and AI while strengthening your faith.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                <a href="https://forum.santricyber.dev" class="btn-primary" target="_blank">
+                    Join Our Forum
+                </a>
+                <a href="#about" class="btn-secondary">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Left: Image -->
+                <div class="hidden md:block">
+                    <img src="assets/img/SantriCyberLogo.png" alt="About SantriCyber" class="w-full max-w-sm mx-auto" loading="lazy">
+                </div>
+
+                <!-- Right: Content -->
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">About SantriCyber</h2>
+
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Founded in 2007, SantriCyber is dedicated to bridging Islamic education with modern technology. We empower Santri and tech enthusiasts to develop valuable skills in programming, cybersecurity, and AI.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Community-Driven</h3>
+                                <p class="text-gray-600">Learn from peers and mentors in a supportive environment</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Islamic Values</h3>
+                                <p class="text-gray-600">All learning aligned with Islamic principles and ethics</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-check-circle text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Modern Tech</h3>
+                                <p class="text-gray-600">Stay updated with the latest in tech and cybersecurity</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://forum.santricyber.dev" class="btn-primary inline-block" target="_blank">
+                        Explore Our Community
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">What We Offer</h2>
+                <p class="text-xl text-gray-600">Comprehensive resources for your growth</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                    <div class="w-12 h-12 bg-accent bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-book text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Islamic Content</h3>
+                    <p class="text-gray-600">Quality Islamic resources and discussions for spiritual growth</p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                    <div class="w-12 h-12 bg-accent bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Programming</h3>
+                    <p class="text-gray-600">Learn development skills from basics to advanced concepts</p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                    <div class="w-12 h-12 bg-accent bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Cybersecurity</h3>
+                    <p class="text-gray-600">Master digital security and ethical hacking practices</p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                    <div class="w-12 h-12 bg-accent bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">AI & Innovation</h3>
+                    <p class="text-gray-600">Explore artificial intelligence and emerging technologies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Left: Video/Image -->
+                <div class="flex items-center justify-center">
+                    <img src="assets/img/why-us.jpg" alt="Why Choose SantriCyber" class="w-full rounded-lg shadow-lg" loading="lazy">
+                </div>
+
+                <!-- Right: Content -->
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Why Choose SantriCyber?</h2>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold mr-3">1</span>
+                                Trusted Community
+                            </h3>
+                            <p class="text-gray-600 ml-11">Join thousands of learners in a safe, supportive environment</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold mr-3">2</span>
+                                Free Access
+                            </h3>
+                            <p class="text-gray-600 ml-11">All content and community resources are completely free</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold mr-3">3</span>
+                                Expert Mentorship
+                            </h3>
+                            <p class="text-gray-600 ml-11">Get guidance from experienced professionals and mentors</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold mr-3">4</span>
+                                Practical Skills
+                            </h3>
+                            <p class="text-gray-600 ml-11">Learn real-world applications through projects and case studies</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold mr-3">5</span>
+                                Islamic Integration
+                            </h3>
+                            <p class="text-gray-600 ml-11">All content respects and promotes Islamic values and ethics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Join Our Community?</h2>
+            <p class="text-xl text-gray-300 mb-12">Start your journey towards Islamic values and modern technology today</p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://forum.santricyber.dev" class="px-8 py-3 bg-accent text-white font-semibold rounded hover:bg-green-700 transition-colors" target="_blank">
+                    Join Forum Now
+                </a>
+                <a href="https://santricyber.org" class="px-8 py-3 border-2 border-white text-white font-semibold rounded hover:bg-white hover:text-gray-900 transition-colors" target="_blank">
+                    Read Our Blog
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-gray-900 text-center mb-16">Islamic Wisdom</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                    <p class="text-lg text-gray-700 mb-4 italic">
+                        "Convey from me, even if it is just one verse."
+                    </p>
+                    <p class="font-semibold text-gray-900">— Prophet Muhammad ﷺ</p>
+                    <p class="text-gray-600">Narrated by Al-Bukhari</p>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                    <p class="text-lg text-gray-700 mb-4 italic">
+                        "When a person dies, all their deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for them."
+                    </p>
+                    <p class="font-semibold text-gray-900">— Prophet Muhammad ﷺ</p>
+                    <p class="text-gray-600">Narrated by Muslim</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Logo & Description -->
+                <div>
+                    <img src="assets/img/logo.png" alt="SantriCyber" class="h-12 mb-4" loading="lazy">
+                    <p class="text-sm text-gray-400">
+                        A community uniting Islamic knowledge with modern technology.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Community</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://forum.santricyber.dev" class="hover:text-accent transition" target="_blank">Forum</a></li>
+                        <li><a href="https://santricyber.org" class="hover:text-accent transition" target="_blank">Blog</a></li>
+                        <li><a href="https://github.com/SantriCyber" class="hover:text-accent transition" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Resources</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://quran.com" class="hover:text-accent transition" target="_blank">Quran</a></li>
+                        <li><a href="https://sunnah.com" class="hover:text-accent transition" target="_blank">Sunnah</a></li>
+                        <li><a href="http://salah.com" class="hover:text-accent transition" target="_blank">Prayer Times</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://twitter.com/SantriCyber" class="hover:text-accent transition" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/santricyber.dev" class="hover:text-accent transition" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/SantriCyber" class="hover:text-accent transition" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://discord.gg/mYdt8ctjRu" class="hover:text-accent transition" target="_blank">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2024 SantriCyber. All rights reserved. | Designed with care by BigLove</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-accent text-white p-3 rounded-full shadow-lg hover:shadow-xl opacity-0 transition-all duration-300 z-40" style="display: none;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Motion.dev Animations Script -->
+    <script>
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > *').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+                backToTopBtn.style.opacity = '1';
+            } else {
+                backToTopBtn.style.opacity = '0';
+                setTimeout(() => {
+                    backToTopBtn.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        // Add mobile menu functionality here if needed
+    </script>
+
+</body>
+</html>

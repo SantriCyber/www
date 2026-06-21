@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#f9fafb"/>
+
+  <!-- Outer circle -->
+  <circle cx="200" cy="200" r="180" fill="none" stroke="#7cc576" stroke-width="3"/>
+
+  <!-- Inner circle -->
+  <circle cx="200" cy="200" r="160" fill="#7cc576" opacity="0.05"/>
+
+  <!-- Main text -->
+  <text x="200" y="220" font-family="Montserrat, sans-serif" font-size="120" font-weight="bold" fill="#7cc576" text-anchor="middle">SC</text>
+
+  <!-- Subtitle -->
+  <text x="200" y="290" font-family="Open Sans, sans-serif" font-size="24" fill="#1A1A1A" text-anchor="middle">SantriCyber</text>
+
+  <!-- Tagline -->
+  <text x="200" y="320" font-family="Open Sans, sans-serif" font-size="14" fill="#666" text-anchor="middle">Islamic &amp; Tech Learning Hub</text>
+</svg>

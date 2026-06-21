@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#7cc576" opacity="0.1"/>
+
+  <!-- Main circle -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#7cc576" stroke-width="2"/>
+
+  <!-- Center text -->
+  <text x="100" y="110" font-family="Montserrat, sans-serif" font-size="48" font-weight="bold" fill="#7cc576" text-anchor="middle">SC</text>
+
+  <!-- Subtitle -->
+  <text x="100" y="140" font-family="Open Sans, sans-serif" font-size="12" fill="#666" text-anchor="middle">SantriCyber</text>
+</svg>
