@@ -37,4 +37,4 @@ Thumbs.db
 .vercel
 
 # Cloudflare Pages
-wrangler.toml
+.wrangler/
