@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
-import AnimatedGlobe from './AnimatedGlobe'
 
 class TextScramble {
   el: HTMLElement
@@ -180,12 +179,20 @@ export default function Hero() {
       >
         <motion.div
           variants={logoVariants}
-          className="mb-8 flex justify-center"
+          className="mb-8"
           whileHover={logoHover}
         >
-          <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            <AnimatedGlobe />
-          </div>
+          <motion.img
+            src="/assets/img/SantriCyberLogo.png"
+            alt="SantriCyber"
+            className="mx-auto mb-8 cursor-pointer drop-shadow-lg w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
+            loading="eager"
+            style={{
+              maxWidth: '400px',
+              height: 'auto',
+              aspectRatio: '400/395',
+            }}
+          />
         </motion.div>
 
         <motion.h1
