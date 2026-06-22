@@ -100,7 +100,7 @@ export default function Services() {
                   type: 'spring',
                   stiffness: 70,
                   damping: 14,
-                  delay: (index % 3) * 0.12,
+                  delay: index * 0.1,
                   duration: 0.8,
                 }}
                 viewport={{ once: true, amount: 0.3 }}
