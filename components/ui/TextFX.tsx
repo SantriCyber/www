@@ -17,85 +17,67 @@ export default function TextFX({
 }: TextFXProps) {
   const chars = text.split('')
 
-  const getVariants = () => {
+  const getInitial = () => {
     switch (animationType) {
       case 'burst':
-        return {
-          hidden: { opacity: 0, scale: 0, rotate: Math.random() * 360 },
-          visible: (i: number) => ({
-            opacity: 1,
-            scale: 1,
-            rotate: 0,
-            transition: {
-              delay: delay + i * 0.05,
-              duration: 0.6,
-              ease: 'easeOut',
-            },
-          }),
-        }
+        return { opacity: 0, scale: 0, rotate: -45 }
       case 'wave':
-        return {
-          hidden: { opacity: 0, y: 20 },
-          visible: (i: number) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-              delay: delay + i * 0.08,
-              duration: 0.5,
-              ease: 'easeOut',
-            },
-          }),
-        }
+        return { opacity: 0, y: 20 }
       case 'fall':
-        return {
-          hidden: { opacity: 0, y: -50, rotate: -15 },
-          visible: (i: number) => ({
-            opacity: 1,
-            y: 0,
-            rotate: 0,
-            transition: {
-              delay: delay + i * 0.05,
-              duration: 0.7,
-              ease: 'easeOut',
-            },
-          }),
-        }
+        return { opacity: 0, y: -50, rotate: -15 }
       case 'spin':
-        return {
-          hidden: { opacity: 0, scale: 0, rotate: 180 },
-          visible: (i: number) => ({
-            opacity: 1,
-            scale: 1,
-            rotate: 0,
-            transition: {
-              delay: delay + i * 0.06,
-              duration: 0.6,
-              ease: 'easeOut',
-            },
-          }),
-        }
+        return { opacity: 0, scale: 0, rotate: 180 }
       default:
-        return {}
+        return { opacity: 0 }
     }
   }
 
-  const variants = getVariants()
+  const getAnimate = () => {
+    switch (animationType) {
+      case 'burst':
+        return { opacity: 1, scale: 1, rotate: 0 }
+      case 'wave':
+        return { opacity: 1, y: 0 }
+      case 'fall':
+        return { opacity: 1, y: 0, rotate: 0 }
+      case 'spin':
+        return { opacity: 1, scale: 1, rotate: 0 }
+      default:
+        return { opacity: 1 }
+    }
+  }
+
+  const getDuration = () => {
+    switch (animationType) {
+      case 'burst':
+        return 0.6
+      case 'wave':
+        return 0.5
+      case 'fall':
+        return 0.7
+      case 'spin':
+        return 0.6
+      default:
+        return 0.5
+    }
+  }
 
   return (
-    <motion.span
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-    >
+    <motion.span className={className}>
       {chars.map((char, i) => (
         <motion.span
           key={i}
-          custom={i}
-          variants={variants}
+          initial={getInitial()}
+          whileInView={getAnimate()}
+          transition={{
+            duration: getDuration(),
+            delay: delay + i * 0.05,
+            ease: 'easeOut',
+          }}
+          viewport={{ once: true }}
           className="inline-block"
         >
-          {char === ' ' ? ' ' : char}
+          {char === ' ' ? ' ' : char}
         </motion.span>
       ))}
     </motion.span>

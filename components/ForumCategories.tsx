@@ -97,16 +97,25 @@ export default function ForumCategories() {
           {categories.map((category, index) => {
             const IconComponent = category.Icon
             return (
-              <motion.a
+              <motion.div
                 key={index}
-                href="https://forum.santricyber.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={itemVariants}
-                whileHover={{ scale: 1.08, y: -8, transition: { duration: 0.2 } }}
-                whileTap={{ scale: 0.95 }}
-                className={`group bg-gradient-to-br ${category.color} p-6 rounded-xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden`}
+                initial={{ opacity: 0, y: 80, filter: 'blur(10px)' }}
+                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: 'easeOut',
+                }}
+                viewport={{ once: true, margin: '-30px' }}
               >
+                <motion.a
+                  href="https://forum.santricyber.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.08, y: -8, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`group bg-gradient-to-br ${category.color} p-6 rounded-xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden`}
+                >
                 {/* Hover shine effect */}
                 <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300" />
 
@@ -121,7 +130,8 @@ export default function ForumCategories() {
                 <h3 className="font-semibold text-sm md:text-base leading-tight relative z-10">
                   {category.name}
                 </h3>
-              </motion.a>
+                </motion.a>
+              </motion.div>
             )
           })}
           </motion.div>

@@ -75,9 +75,14 @@ export default function WhyUs() {
           {/* Left: Image with parallax */}
           <motion.div
             className="flex items-center justify-center order-2 md:order-1"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: 150, scale: 0.5, rotate: 20 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1, rotate: 0 }}
+            transition={{
+              duration: 0.9,
+              type: 'spring',
+              stiffness: 60,
+              damping: 20,
+            }}
             viewport={{ once: true }}
             style={{ y: imageY }}
           >

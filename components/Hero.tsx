@@ -218,9 +218,24 @@ export default function Hero() {
         style={{ zIndex: 10 }}
       >
         <motion.div
-          variants={logoVariants}
           className="mb-8"
           whileHover={logoHover}
+          initial={{ opacity: 0, scale: 0, y: -200, x: 100, rotate: -45 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            x: 0,
+            rotate: 0,
+          }}
+          transition={{
+            duration: 1.2,
+            delay: 0.2,
+            type: 'spring',
+            stiffness: 80,
+            damping: 15,
+            ease: 'easeOut',
+          }}
         >
           <motion.img
             src="/assets/img/SantriCyberLogo.png"
@@ -232,38 +247,67 @@ export default function Hero() {
               height: 'auto',
               aspectRatio: '400/395',
             }}
+            whileHover={{ scale: 1.1, rotate: 10 }}
+            transition={{ duration: 0.3 }}
           />
         </motion.div>
 
         <motion.h1
           ref={titleRef}
-          variants={itemVariants}
           className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
           style={{ fontFamily: 'monospace' }}
+          initial={{ opacity: 0, filter: 'blur(20px)', y: 50 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+          transition={{
+            duration: 1,
+            delay: 0.6,
+            ease: 'easeOut',
+          }}
         >
           Welcome to SantriCyber
         </motion.h1>
 
         <motion.p
-          variants={itemVariants}
           className="text-xl text-gray-100 mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
+          initial={{ opacity: 0, filter: 'blur(15px)', y: 30 }}
+          animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 1,
+            ease: 'easeOut',
+          }}
         >
           {displayText}
           {!isComplete && <span className="animate-pulse">|</span>}
         </motion.p>
 
         <motion.div
-          variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 50, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            duration: 0.6,
+            delay: 1.3,
+            ease: 'easeOut',
+          }}
         >
-          <MagicButton
-            onClick={() => window.open('https://forum.santricyber.dev', '_blank')}
-            className="bg-accent text-white shadow-lg"
-          >
-            Join Our Forum
-          </MagicButton>
           <motion.div
-            variants={buttonHoverVariants}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.3 }}
+          >
+            <MagicButton
+              onClick={() => window.open('https://forum.santricyber.dev', '_blank')}
+              className="bg-accent text-white shadow-lg"
+            >
+              Join Our Forum
+            </MagicButton>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.5 }}
             whileHover="hover"
             whileTap="tap"
           >

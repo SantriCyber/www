@@ -97,7 +97,18 @@ export default function Services() {
           {services.map((service, index) => {
             const Icon = service.icon
             return (
-              <GlassCard key={index} index={index}>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 100, filter: 'blur(10px)' }}
+                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.15,
+                  ease: 'easeOut',
+                }}
+                viewport={{ once: true, margin: '-50px' }}
+              >
+                <GlassCard index={index}>
                 <motion.div
                   className="w-12 h-12 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mb-6"
                   whileHover={{ scale: 1.2, rotate: 10 }}
@@ -108,7 +119,8 @@ export default function Services() {
 
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
-              </GlassCard>
+                </GlassCard>
+              </motion.div>
             )
           })}
         </motion.div>
