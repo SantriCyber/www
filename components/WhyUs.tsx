@@ -124,20 +124,39 @@ export default function WhyUs() {
               {reasons.map((reason, index) => (
                 <motion.div
                   key={index}
-                  variants={itemVariants}
+                  initial={{
+                    opacity: 0,
+                    x: -200,
+                    rotate: -20,
+                    scale: 0.8,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                    rotate: 0,
+                    scale: 1,
+                  }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 70,
+                    damping: 14,
+                    delay: index * 0.1,
+                    duration: 0.8,
+                  }}
+                  viewport={{ once: true, margin: '-30px' }}
                   className="group"
                 >
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
-                    <motion.span
-                      className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0"
-                      whileHover={{ scale: 1.2, rotate: 360 }}
-                      transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                    >
-                      {reason.number}
-                    </motion.span>
-                    <span className="group-hover:text-accent transition-colors">{reason.title}</span>
-                  </h3>
-                  <p className="text-gray-600 ml-11">{reason.description}</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
+                      <motion.span
+                        className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0"
+                        whileHover={{ scale: 1.2, rotate: 360 }}
+                        transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                      >
+                        {reason.number}
+                      </motion.span>
+                      <span className="group-hover:text-accent transition-colors">{reason.title}</span>
+                    </h3>
+                    <p className="text-gray-600 ml-11">{reason.description}</p>
                 </motion.div>
               ))}
             </motion.div>

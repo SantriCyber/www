@@ -94,11 +94,23 @@ export default function ForumCategories() {
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{
+                  opacity: 0,
+                  x: -300,
+                  rotate: -30,
+                  scale: 0.5,
+                }}
+                animate={{
                   opacity: 1,
                   x: 0,
-                  y: 0,
                   rotate: 0,
                   scale: 1,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 70,
+                  damping: 14,
+                  delay: (index % 4) * 0.1,
+                  duration: 0.8,
                 }}
                 whileHover={isMobile ? { scale: 1.03 } : {
                   scale: 1.12,

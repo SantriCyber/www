@@ -66,26 +66,24 @@ export default function CTA() {
           <motion.div
             initial={{
               opacity: 0,
-              x: -150,
-              y: 100,
-              rotate: -45,
-              scale: 0,
+              x: -300,
+              rotate: -30,
+              scale: 0.5,
             }}
             whileInView={{
               opacity: 1,
               x: 0,
-              y: 0,
               rotate: 0,
               scale: 1,
             }}
             transition={{
-              duration: 0.8,
-              delay: 0.2,
               type: 'spring',
-              stiffness: 110,
-              damping: 18,
+              stiffness: 70,
+              damping: 14,
+              delay: 0,
+              duration: 0.8,
             }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '-50px' }}
           >
             <MagicButton
               onClick={() => window.open('https://forum.santricyber.dev', '_blank')}
@@ -98,26 +96,24 @@ export default function CTA() {
           <motion.div
             initial={{
               opacity: 0,
-              x: 150,
-              y: 100,
-              rotate: 45,
-              scale: 0,
+              x: 300,
+              rotate: 30,
+              scale: 0.5,
             }}
             whileInView={{
               opacity: 1,
               x: 0,
-              y: 0,
               rotate: 0,
               scale: 1,
             }}
             transition={{
-              duration: 0.8,
-              delay: 0.35,
               type: 'spring',
-              stiffness: 110,
-              damping: 18,
+              stiffness: 70,
+              damping: 14,
+              delay: 0.1,
+              duration: 0.8,
             }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '-50px' }}
           >
             <motion.a
               href="https://santricyber.org"

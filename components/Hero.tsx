@@ -7,6 +7,7 @@ import FloatingBackground from '@/components/ui/FloatingBackground'
 import MorphingBlob from '@/components/ui/MorphingBlob'
 import MagicButton from '@/components/ui/MagicButton'
 import TextFX from '@/components/ui/TextFX'
+import SwingIn from '@/components/ui/SwingIn'
 
 class TextScramble {
   el: HTMLElement
@@ -217,26 +218,11 @@ export default function Hero() {
         animate="visible"
         style={{ zIndex: 10 }}
       >
-        <motion.div
-          className="mb-8"
-          whileHover={logoHover}
-          initial={{ opacity: 0, scale: 0, y: -200, x: 100, rotate: -45 }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            x: 0,
-            rotate: 0,
-          }}
-          transition={{
-            duration: 1.2,
-            delay: 0.2,
-            type: 'spring',
-            stiffness: 80,
-            damping: 15,
-            ease: 'easeOut',
-          }}
-        >
+        <SwingIn delay={0}>
+          <motion.div
+            className="mb-8"
+            whileHover={logoHover}
+          >
           <motion.img
             src="/assets/img/SantriCyberLogo.png"
             alt="SantriCyber"
@@ -250,7 +236,8 @@ export default function Hero() {
             whileHover={{ scale: 1.1, rotate: 10 }}
             transition={{ duration: 0.3 }}
           />
-        </motion.div>
+          </motion.div>
+        </SwingIn>
 
         <motion.h1
           ref={titleRef}
