@@ -50,7 +50,7 @@ export default function WhyUs() {
             viewport={{ once: true }}
           >
             <img
-              src="/assets/img/why-us.jpg"
+              src="/assets/img/santricyber-meeting.png"
               alt="Why Choose SantriCyber"
               className="w-full rounded-lg shadow-lg"
               loading="lazy"
