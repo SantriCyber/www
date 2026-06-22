@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 interface FloatingBackgroundProps {
   count?: number
@@ -8,9 +9,21 @@ interface FloatingBackgroundProps {
 }
 
 export default function FloatingBackground({ count = 5, className = '' }: FloatingBackgroundProps) {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const floatingElements = Array.from({ length: count }).map((_, i) => ({
     id: i,
-    size: Math.random() * 200 + 100,
+    // Smaller size on mobile to prevent overflow
+    size: isMobile
+      ? Math.random() * 80 + 40   // Mobile: 40-120px
+      : Math.random() * 200 + 100, // Desktop: 100-300px
     duration: Math.random() * 8 + 8,
     delay: Math.random() * 2,
     left: Math.random() * 100,

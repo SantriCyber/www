@@ -19,9 +19,9 @@ export default function CTA() {
       {/* Floating background */}
       <FloatingBackground count={3} className="opacity-30" />
 
-      {/* Morphing blobs */}
-      <MorphingBlob className="w-96 h-96 top-0 left-0 opacity-20" delay={0} />
-      <MorphingBlob className="w-80 h-80 bottom-0 right-0 opacity-15" delay={2} />
+      {/* Morphing blobs - hidden on mobile */}
+      <MorphingBlob className="hidden sm:block w-96 h-96 top-0 left-0 opacity-20" delay={0} />
+      <MorphingBlob className="hidden sm:block w-80 h-80 bottom-0 right-0 opacity-15" delay={2} />
 
       <motion.div
         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
@@ -59,29 +59,78 @@ export default function CTA() {
 
         <motion.div
           className="flex flex-col sm:flex-row gap-4 justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <MagicButton
-            onClick={() => window.open('https://forum.santricyber.dev', '_blank')}
-            className="bg-gradient-to-r from-accent to-green-500"
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -150,
+              y: 100,
+              rotate: -45,
+              scale: 0,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              y: 0,
+              rotate: 0,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.2,
+              type: 'spring',
+              stiffness: 110,
+              damping: 18,
+            }}
+            viewport={{ once: true }}
           >
-            Join Forum Now
-          </MagicButton>
+            <MagicButton
+              onClick={() => window.open('https://forum.santricyber.dev', '_blank')}
+              className="bg-gradient-to-r from-accent to-green-500"
+            >
+              Join Forum Now
+            </MagicButton>
+          </motion.div>
 
-          <motion.a
-            href="https://santricyber.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:shadow-xl transition-all group relative overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 150,
+              y: 100,
+              rotate: 45,
+              scale: 0,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              y: 0,
+              rotate: 0,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.35,
+              type: 'spring',
+              stiffness: 110,
+              damping: 18,
+            }}
+            viewport={{ once: true }}
           >
-            <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 -z-10" />
-            <span className="relative z-10 group-hover:text-gray-900 transition-colors">Read Our Blog</span>
-          </motion.a>
+            <motion.a
+              href="https://santricyber.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:shadow-xl transition-all group relative overflow-hidden block"
+              whileHover={{ scale: 1.08, rotate: 2 }}
+              whileTap={{ scale: 0.92, rotate: -2 }}
+            >
+              <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 -z-10" />
+              <span className="relative z-10 group-hover:text-gray-900 transition-colors">Read Our Blog</span>
+            </motion.a>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>

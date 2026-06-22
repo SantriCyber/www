@@ -55,8 +55,8 @@ export default function About() {
       {/* Floating background */}
       <FloatingBackground count={3} className="opacity-25" />
 
-      {/* Morphing blobs */}
-      <MorphingBlob className="w-96 h-96 -top-20 -left-20 opacity-20" delay={1} />
+      {/* Morphing blobs - responsive */}
+      <MorphingBlob className="hidden sm:block w-96 h-96 -top-20 -left-20 opacity-20" delay={1} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -68,7 +68,7 @@ export default function About() {
         >
           {/* Left: Image with parallax */}
           <motion.div
-            className="hidden md:block"
+            className="flex justify-center md:block"
             initial={{ opacity: 0, x: -150, scale: 0.5, rotate: -20 }}
             whileInView={{ opacity: 1, x: 0, scale: 1, rotate: 0 }}
             transition={{

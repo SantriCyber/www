@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import {
   MessageSquare,
   BookOpen,
@@ -18,6 +19,15 @@ import RippleEffect from '@/components/ui/RippleEffect'
 import MorphingBlob from '@/components/ui/MorphingBlob'
 
 export default function ForumCategories() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const categories = [
     { name: 'DISCUSS of ISLAMIC', Icon: BookOpen, color: 'from-blue-400 to-blue-600' },
     { name: 'PILLAR of IMAN and ISLAM', Icon: Heart, color: 'from-purple-400 to-purple-600' },
@@ -51,71 +61,54 @@ export default function ForumCategories() {
   }
 
   return (
-    <section id="forum" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section id="forum" className="w-full bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Floating background */}
       <FloatingBackground count={3} className="opacity-30" />
 
-      {/* Morphing blobs */}
-      <MorphingBlob className="w-96 h-96 bottom-0 right-10 opacity-20" delay={2} />
+      {/* Morphing blobs - hidden on mobile */}
+      <MorphingBlob className="hidden sm:block w-96 h-96 bottom-0 right-10 opacity-20" delay={2} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
+      <div className="w-full flex flex-col gap-6 px-4 sm:px-6 relative z-10 py-12 sm:py-16 md:py-24">
+        <div className="text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             Forum Categories
-          </motion.h2>
-          <motion.p
-            className="text-xl text-gray-600"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          </h2>
+          <p className="text-xl text-gray-600">
             Explore our diverse community discussions
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        <RippleEffect className="w-full">
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {categories.map((category, index) => {
             const IconComponent = category.Icon
+
+            // Stagger direction untuk wild effect
+            const isEven = index % 2 === 0
+            const fromX = isEven ? -200 : 200
+            const rotate = isEven ? -45 : 45
+
             return (
-              <motion.div
+              <motion.a
                 key={index}
-                initial={{ opacity: 0, y: 80, filter: 'blur(10px)' }}
-                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                  ease: 'easeOut',
+                href="https://forum.santricyber.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                  rotate: 0,
+                  scale: 1,
                 }}
-                viewport={{ once: true, margin: '-30px' }}
+                whileHover={isMobile ? { scale: 1.03 } : {
+                  scale: 1.12,
+                  y: -15,
+                  rotate: 5,
+                  boxShadow: '0 20px 40px rgba(124, 197, 118, 0.4)',
+                }}
+                whileTap={{ scale: 0.95 }}
+                className={`group bg-gradient-to-br ${category.color} p-6 rounded-xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden`}
               >
-                <motion.a
-                  href="https://forum.santricyber.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.08, y: -8, transition: { duration: 0.2 } }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`group bg-gradient-to-br ${category.color} p-6 rounded-xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden`}
-                >
                 {/* Hover shine effect */}
                 <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300" />
 
@@ -130,12 +123,10 @@ export default function ForumCategories() {
                 <h3 className="font-semibold text-sm md:text-base leading-tight relative z-10">
                   {category.name}
                 </h3>
-                </motion.a>
-              </motion.div>
+              </motion.a>
             )
           })}
-          </motion.div>
-        </RippleEffect>
+        </div>
 
         <motion.div
           className="text-center mt-12"

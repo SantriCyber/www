@@ -205,10 +205,10 @@ export default function Hero() {
       {/* Floating background particles */}
       <FloatingBackground count={5} className="opacity-50" />
 
-      {/* Morphing blobs for magic effect */}
-      <MorphingBlob className="w-96 h-96 top-20 -left-20 opacity-40" delay={0} />
-      <MorphingBlob className="w-80 h-80 bottom-10 -right-10 opacity-30" delay={2} />
-      <MorphingBlob className="w-72 h-72 top-1/2 left-1/3 opacity-20" delay={4} />
+      {/* Morphing blobs for magic effect - hidden on mobile */}
+      <MorphingBlob className="hidden sm:block w-96 h-96 top-20 -left-20 opacity-40" delay={0} />
+      <MorphingBlob className="hidden sm:block w-80 h-80 bottom-10 -right-10 opacity-30" delay={2} />
+      <MorphingBlob className="hidden sm:block w-72 h-72 top-1/2 left-1/3 opacity-20" delay={4} />
 
       <motion.div
         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20"

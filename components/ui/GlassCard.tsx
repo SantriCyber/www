@@ -17,19 +17,15 @@ export default function GlassCard({
 }: GlassCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 1, y: 0, scale: 1 }}
       whileHover={{
         y: -12,
         scale: 1.03,
         boxShadow: '0 20px 40px rgba(124, 197, 118, 0.15)'
       }}
       transition={{
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: 'easeOut'
+        duration: 0.3
       }}
-      viewport={{ once: true, margin: '-50px' }}
       className={`
         relative p-6 rounded-2xl backdrop-blur-md
         bg-white/30 border border-white/20
