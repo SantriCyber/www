@@ -90,7 +90,7 @@ export default function Services() {
                   rotate: -30,
                   scale: 0.5,
                 }}
-                whileInView={{
+                animate={{
                   opacity: 1,
                   x: 0,
                   rotate: 0,
@@ -103,7 +103,6 @@ export default function Services() {
                   delay: (index % 3) * 0.12,
                   duration: 0.8,
                 }}
-                viewport={{ once: true, margin: '-50px' }}
                 whileHover={{
                   scale: 1.08,
                   y: -20,

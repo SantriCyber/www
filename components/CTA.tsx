@@ -70,7 +70,7 @@ export default function CTA() {
               rotate: -30,
               scale: 0.5,
             }}
-            whileInView={{
+            animate={{
               opacity: 1,
               x: 0,
               rotate: 0,
@@ -83,7 +83,6 @@ export default function CTA() {
               delay: 0,
               duration: 0.8,
             }}
-            viewport={{ once: true, margin: '-50px' }}
           >
             <MagicButton
               onClick={() => window.open('https://forum.santricyber.dev', '_blank')}
@@ -100,7 +99,7 @@ export default function CTA() {
               rotate: 30,
               scale: 0.5,
             }}
-            whileInView={{
+            animate={{
               opacity: 1,
               x: 0,
               rotate: 0,
@@ -113,7 +112,6 @@ export default function CTA() {
               delay: 0.1,
               duration: 0.8,
             }}
-            viewport={{ once: true, margin: '-50px' }}
           >
             <motion.a
               href="https://santricyber.org"
