@@ -68,10 +68,10 @@ export default function Footer() {
 		{
 			label: 'About',
 			links: [
-				{ title: 'About Us', href: '#' },
-				{ title: 'Mission & Vision', href: '#' },
-				{ title: 'Privacy Policy', href: '#' },
-				{ title: 'Terms of Service', href: '#' },
+				{ title: 'About Us', href: 'https://forum.santricyber.dev/about' },
+				{ title: 'Privacy Policy', href: 'https://forum.santricyber.dev/privacy' },
+				{ title: 'Terms of Service', href: 'https://forum.santricyber.dev/tos' },
+				{ title: 'Contact Us', href: 'https://forum.santricyber.dev' },
 			],
 		},
 	]
