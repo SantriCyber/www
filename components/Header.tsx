@@ -55,7 +55,7 @@ export default function Header() {
               className="h-10"
               loading="eager"
             />
-            <span className="hidden sm:inline font-bold text-lg text-gray-900">SantriCyber</span>
+            <span className="font-bold text-sm sm:text-lg text-gray-900">SantriCyber</span>
           </Link>
 
           {/* Desktop Navigation */}
