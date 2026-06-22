@@ -9,6 +9,8 @@ import {
 	YoutubeIcon,
 	Github,
 	Music2,
+	Twitter,
+	Share2,
 } from 'lucide-react'
 
 interface FooterLink {
@@ -27,10 +29,12 @@ export default function Footer() {
 	const socialLinks = [
 		{ title: 'Website', href: 'https://santri.dev', icon: GlobeIcon },
 		{ title: 'Facebook', href: 'https://www.facebook.com/santricyber.dev/', icon: FacebookIcon },
+		{ title: 'X', href: 'https://x.com/santricyber', icon: Twitter },
 		{ title: 'Instagram', href: 'https://www.instagram.com/santricyber.dev', icon: InstagramIcon },
 		{ title: 'YouTube', href: 'https://youtube.com/@santricyberdev', icon: YoutubeIcon },
 		{ title: 'TikTok', href: 'https://www.tiktok.com/@santricyber.dev', icon: Music2 },
 		{ title: 'GitHub', href: 'https://github.com/santricyber', icon: Github },
+		{ title: 'Threads', href: 'https://www.threads.com/@santricyber.dev', icon: Share2 },
 	]
 
 	const footerLinkGroups: FooterLinkGroup[] = [
