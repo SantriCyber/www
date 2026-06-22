@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import FloatingBackground from '@/components/ui/FloatingBackground'
 import AnimatedGradient from '@/components/ui/AnimatedGradient'
+import MagicButton from '@/components/ui/MagicButton'
+import MorphingBlob from '@/components/ui/MorphingBlob'
 
 export default function CTA() {
   return (
@@ -16,6 +18,10 @@ export default function CTA() {
 
       {/* Floating background */}
       <FloatingBackground count={3} className="opacity-30" />
+
+      {/* Morphing blobs */}
+      <MorphingBlob className="w-96 h-96 top-0 left-0 opacity-20" delay={0} />
+      <MorphingBlob className="w-80 h-80 bottom-0 right-0 opacity-15" delay={2} />
 
       <motion.div
         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
@@ -58,17 +64,12 @@ export default function CTA() {
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <motion.a
-            href="https://forum.santricyber.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:shadow-xl transition-shadow relative overflow-hidden group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <MagicButton
+            onClick={() => window.open('https://forum.santricyber.dev', '_blank')}
+            className="bg-gradient-to-r from-accent to-green-500"
           >
-            <div className="absolute inset-0 bg-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 -z-10" />
-            <span className="relative z-10">Join Forum Now</span>
-          </motion.a>
+            Join Forum Now
+          </MagicButton>
 
           <motion.a
             href="https://santricyber.org"

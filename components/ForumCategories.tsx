@@ -14,6 +14,8 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import FloatingBackground from '@/components/ui/FloatingBackground'
+import RippleEffect from '@/components/ui/RippleEffect'
+import MorphingBlob from '@/components/ui/MorphingBlob'
 
 export default function ForumCategories() {
   const categories = [
@@ -53,6 +55,9 @@ export default function ForumCategories() {
       {/* Floating background */}
       <FloatingBackground count={3} className="opacity-30" />
 
+      {/* Morphing blobs */}
+      <MorphingBlob className="w-96 h-96 bottom-0 right-10 opacity-20" delay={2} />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           className="text-center mb-16"
@@ -81,13 +86,14 @@ export default function ForumCategories() {
           </motion.p>
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
+        <RippleEffect className="w-full">
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
           {categories.map((category, index) => {
             const IconComponent = category.Icon
             return (
@@ -118,7 +124,8 @@ export default function ForumCategories() {
               </motion.a>
             )
           })}
-        </motion.div>
+          </motion.div>
+        </RippleEffect>
 
         <motion.div
           className="text-center mt-12"

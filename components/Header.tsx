@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 import { useRef } from 'react'
+import MagicButton from '@/components/ui/MagicButton'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -75,17 +76,12 @@ export default function Header() {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <motion.a
-              href="https://forum.santricyber.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2.5 bg-accent text-white font-semibold rounded-lg hover:shadow-lg relative overflow-hidden group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <MagicButton
+              onClick={() => window.open('https://forum.santricyber.dev', '_blank')}
+              className="px-6 py-2.5 bg-accent text-white font-semibold"
             >
-              <div className="absolute inset-0 bg-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 -z-10" />
               Join Forum
-            </motion.a>
+            </MagicButton>
           </div>
 
           {/* Mobile Menu Toggle */}

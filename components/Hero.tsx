@@ -4,6 +4,9 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import FloatingBackground from '@/components/ui/FloatingBackground'
+import MorphingBlob from '@/components/ui/MorphingBlob'
+import MagicButton from '@/components/ui/MagicButton'
+import TextFX from '@/components/ui/TextFX'
 
 class TextScramble {
   el: HTMLElement
@@ -202,6 +205,11 @@ export default function Hero() {
       {/* Floating background particles */}
       <FloatingBackground count={5} className="opacity-50" />
 
+      {/* Morphing blobs for magic effect */}
+      <MorphingBlob className="w-96 h-96 top-20 -left-20 opacity-40" delay={0} />
+      <MorphingBlob className="w-80 h-80 bottom-10 -right-10 opacity-30" delay={2} />
+      <MorphingBlob className="w-72 h-72 top-1/2 left-1/3 opacity-20" delay={4} />
+
       <motion.div
         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20"
         variants={containerVariants}
@@ -248,17 +256,12 @@ export default function Hero() {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <motion.a
-            href="https://forum.santricyber.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-            variants={buttonHoverVariants}
-            whileHover="hover"
-            whileTap="tap"
+          <MagicButton
+            onClick={() => window.open('https://forum.santricyber.dev', '_blank')}
+            className="bg-accent text-white shadow-lg"
           >
             Join Our Forum
-          </motion.a>
+          </MagicButton>
           <motion.div
             variants={buttonHoverVariants}
             whileHover="hover"

@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
 import { useRef } from 'react'
 import FloatingBackground from '@/components/ui/FloatingBackground'
+import NeonGlow from '@/components/ui/NeonGlow'
+import MorphingBlob from '@/components/ui/MorphingBlob'
 
 export default function About() {
   const ref = useRef(null)
@@ -52,6 +54,9 @@ export default function About() {
     <section id="about" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden" ref={ref}>
       {/* Floating background */}
       <FloatingBackground count={3} className="opacity-25" />
+
+      {/* Morphing blobs */}
+      <MorphingBlob className="w-96 h-96 -top-20 -left-20 opacity-20" delay={1} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

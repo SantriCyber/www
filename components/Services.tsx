@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Book, Code, Shield, Bot } from 'lucide-react'
 import GlassCard from '@/components/ui/GlassCard'
 import FloatingBackground from '@/components/ui/FloatingBackground'
+import MorphingBlob from '@/components/ui/MorphingBlob'
 
 export default function Services() {
   const services = [
@@ -53,6 +54,10 @@ export default function Services() {
     <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Floating background */}
       <FloatingBackground count={4} className="opacity-40" />
+
+      {/* Morphing blobs */}
+      <MorphingBlob className="w-96 h-96 top-0 right-0 opacity-25" delay={0} />
+      <MorphingBlob className="w-80 h-80 bottom-20 left-0 opacity-20" delay={3} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
