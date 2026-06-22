@@ -130,7 +130,7 @@ export default function WhyUs() {
                     rotate: -20,
                     scale: 0.8,
                   }}
-                  animate={{
+                  whileInView={{
                     opacity: 1,
                     x: 0,
                     rotate: 0,
@@ -143,6 +143,7 @@ export default function WhyUs() {
                     delay: index * 0.1,
                     duration: 0.8,
                   }}
+                  viewport={{ once: true, amount: 0.2 }}
                   className="group"
                 >
                     <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">

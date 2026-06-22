@@ -99,7 +99,7 @@ export default function ForumCategories() {
                   rotate: -30,
                   scale: 0.5,
                 }}
-                animate={{
+                whileInView={{
                   opacity: 1,
                   x: 0,
                   rotate: 0,
@@ -112,6 +112,7 @@ export default function ForumCategories() {
                   delay: (index % 4) * 0.1,
                   duration: 0.8,
                 }}
+                viewport={{ once: true, amount: 0.2 }}
                 whileHover={isMobile ? { scale: 1.03 } : {
                   scale: 1.12,
                   y: -15,
