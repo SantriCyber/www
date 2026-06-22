@@ -1,8 +1,9 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
+import FloatingBackground from '@/components/ui/FloatingBackground'
 
 class TextScramble {
   el: HTMLElement
@@ -84,6 +85,12 @@ export default function Hero() {
   const [isComplete, setIsComplete] = useState(false)
   const titleRef = useRef<HTMLHeadingElement>(null)
   const scramblerRef = useRef<TextScramble | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  })
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
 
   useEffect(() => {
     if (titleRef.current && !scramblerRef.current) {
@@ -157,25 +164,50 @@ export default function Hero() {
 
   return (
     <section id="hero"
+      ref={sectionRef}
       style={{
         width: '100%',
         height: '100vh',
-        backgroundImage: 'url(/assets/img/hero-bg.png)',
-        backgroundRepeat: 'repeat',
-        backgroundPosition: '0 0',
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: '80px',
+        overflow: 'hidden',
       }}
     >
+      {/* Parallax background */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'url(/assets/img/hero-bg.png)',
+          backgroundRepeat: 'repeat',
+          backgroundPosition: '0 0',
+          y: bgY,
+          zIndex: 0,
+        }}
+      />
+
+      {/* Overlay gradient */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(26,26,26,0.3) 0%, rgba(124,197,118,0.1) 100%)',
+          zIndex: 1,
+        }}
+      />
+
+      {/* Floating background particles */}
+      <FloatingBackground count={5} className="opacity-50" />
 
       <motion.div
         className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        style={{ zIndex: 10 }}
       >
         <motion.div
           variants={logoVariants}

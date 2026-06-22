@@ -1,8 +1,17 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+import FloatingBackground from '@/components/ui/FloatingBackground'
 
 export default function WhyUs() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
+  const imageY = useTransform(scrollYProgress, [0, 1], [-100, 100])
+
   const reasons = [
     {
       number: '1',
@@ -31,9 +40,31 @@ export default function WhyUs() {
     },
   ]
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  }
+
   return (
-    <section id="why" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden" ref={ref}>
+      {/* Floating background */}
+      <FloatingBackground count={4} className="opacity-35" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           className="grid md:grid-cols-2 gap-16 items-center"
           initial={{ opacity: 0 }}
@@ -41,50 +72,70 @@ export default function WhyUs() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {/* Left: Image */}
+          {/* Left: Image with parallax */}
           <motion.div
-            className="flex items-center justify-center"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="flex items-center justify-center order-2 md:order-1"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            style={{ y: imageY }}
           >
-            <img
+            <motion.img
               src="/assets/img/santricyber-meeting.png"
               alt="Why Choose SantriCyber"
-              className="w-full rounded-lg shadow-lg"
+              className="w-full rounded-xl shadow-2xl"
               loading="lazy"
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.4 }}
             />
           </motion.div>
 
           {/* Right: Content */}
           <motion.div
+            className="order-1 md:order-2"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose SantriCyber?</h2>
+            <motion.h2
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Why Choose SantriCyber?
+            </motion.h2>
 
-            <div className="space-y-6">
+            <motion.div
+              className="space-y-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
               {reasons.map((reason, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  variants={itemVariants}
+                  className="group"
                 >
                   <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
-                    <span className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold mr-3">
+                    <motion.span
+                      className="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0"
+                      whileHover={{ scale: 1.2, rotate: 360 }}
+                      transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                    >
                       {reason.number}
-                    </span>
-                    {reason.title}
+                    </motion.span>
+                    <span className="group-hover:text-accent transition-colors">{reason.title}</span>
                   </h3>
                   <p className="text-gray-600 ml-11">{reason.description}</p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

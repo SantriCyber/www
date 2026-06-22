@@ -1,10 +1,19 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
+import { useRef } from 'react'
+import FloatingBackground from '@/components/ui/FloatingBackground'
 
 export default function About() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
+  const imageY = useTransform(scrollYProgress, [0, 1], [100, -100])
+
   const features = [
     {
       title: 'Community-Driven',
@@ -20,9 +29,31 @@ export default function About() {
     },
   ]
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  }
+
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden" ref={ref}>
+      {/* Floating background */}
+      <FloatingBackground count={3} className="opacity-25" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           className="grid md:grid-cols-2 gap-16 items-center"
           initial={{ opacity: 0 }}
@@ -30,19 +61,22 @@ export default function About() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {/* Left: Image */}
+          {/* Left: Image with parallax */}
           <motion.div
             className="hidden md:block"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            style={{ y: imageY }}
           >
-            <img
+            <motion.img
               src="/assets/img/SantriCyberLogo.png"
               alt="About SantriCyber"
-              className="w-full max-w-sm mx-auto"
+              className="w-full max-w-sm mx-auto drop-shadow-xl"
               loading="lazy"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
             />
           </motion.div>
 
@@ -53,41 +87,63 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">About SantriCyber</h2>
+            <motion.h2
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              About SantriCyber
+            </motion.h2>
 
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+            <motion.p
+              className="text-lg text-gray-600 mb-6 leading-relaxed"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               Founded in 2007, SantriCyber is dedicated to bridging Islamic education with modern technology. We empower Santri and tech enthusiasts to develop valuable skills in programming, cybersecurity, and AI.
-            </p>
+            </motion.p>
 
-            <div className="space-y-4 mb-8">
+            <motion.div
+              className="space-y-4 mb-8"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-start space-x-4"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  variants={itemVariants}
+                  className="flex items-start space-x-4 group"
                 >
-                  <div className="flex-shrink-0 mt-1">
+                  <motion.div
+                    className="flex-shrink-0 mt-1"
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                  >
                     <CheckCircle2 className="text-accent" size={24} />
-                  </div>
+                  </motion.div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">{feature.title}</h3>
+                    <h3 className="font-semibold text-gray-900 group-hover:text-accent transition-colors">{feature.title}</h3>
                     <p className="text-gray-600">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            <a
+            <motion.a
               href="https://forum.santricyber.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-block"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               Explore Our Community
-            </a>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>

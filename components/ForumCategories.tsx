@@ -13,6 +13,7 @@ import {
   Building,
 } from 'lucide-react'
 import Link from 'next/link'
+import FloatingBackground from '@/components/ui/FloatingBackground'
 
 export default function ForumCategories() {
   const categories = [
@@ -31,32 +32,53 @@ export default function ForumCategories() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.85, y: 20 },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5 },
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   }
 
   return (
-    <section id="forum" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="forum" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      {/* Floating background */}
+      <FloatingBackground count={3} className="opacity-30" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Forum Categories</h2>
-          <p className="text-xl text-gray-600">Explore our diverse community discussions</p>
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            Forum Categories
+          </motion.h2>
+          <motion.p
+            className="text-xl text-gray-600"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Explore our diverse community discussions
+          </motion.p>
         </motion.div>
 
         <motion.div
@@ -64,7 +86,7 @@ export default function ForumCategories() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           {categories.map((category, index) => {
             const IconComponent = category.Icon
@@ -75,13 +97,22 @@ export default function ForumCategories() {
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={itemVariants}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className={`group bg-gradient-to-br ${category.color} p-6 rounded-lg text-white shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer`}
+                whileHover={{ scale: 1.08, y: -8, transition: { duration: 0.2 } }}
+                whileTap={{ scale: 0.95 }}
+                className={`group bg-gradient-to-br ${category.color} p-6 rounded-xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden`}
               >
-                <div className="mb-3">
+                {/* Hover shine effect */}
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300" />
+
+                <motion.div
+                  className="mb-3 relative z-10"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
                   <IconComponent size={40} className="text-white" />
-                </div>
-                <h3 className="font-semibold text-sm md:text-base leading-tight group-hover:scale-105 transition-transform">
+                </motion.div>
+
+                <h3 className="font-semibold text-sm md:text-base leading-tight relative z-10">
                   {category.name}
                 </h3>
               </motion.a>

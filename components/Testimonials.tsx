@@ -1,6 +1,8 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { ScrollReelTestimonials } from '@/components/ui/scroll-reel-testimonials'
+import FloatingBackground from '@/components/ui/FloatingBackground'
 
 export default function Testimonials() {
   const testimonials = [
@@ -135,23 +137,50 @@ export default function Testimonials() {
   ]
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Islamic Wisdom
-          </h2>
-          <p className="text-lg text-gray-600">
-            Hadith and guidance for spiritual growth
-          </p>
-        </div>
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Floating background */}
+      <FloatingBackground count={3} className="opacity-25" />
 
-        <div className="flex justify-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            Islamic Wisdom
+          </motion.h2>
+          <motion.p
+            className="text-lg text-gray-600"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Hadith and guidance for spiritual growth
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <ScrollReelTestimonials
             testimonials={testimonials}
             charStaggerMs={8}
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   )

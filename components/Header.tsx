@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
+import { useRef } from 'react'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -74,14 +75,17 @@ export default function Header() {
 
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <a
+            <motion.a
               href="https://forum.santricyber.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 bg-accent text-white font-semibold rounded-lg hover:bg-green-700 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95"
+              className="px-6 py-2.5 bg-accent text-white font-semibold rounded-lg hover:shadow-lg relative overflow-hidden group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
+              <div className="absolute inset-0 bg-green-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 -z-10" />
               Join Forum
-            </a>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -109,25 +113,38 @@ export default function Header() {
               className="md:hidden overflow-hidden border-t border-gray-200"
             >
               <div className="py-6 space-y-2">
-                {navLinks.map((link) => (
-                  <Link
+                {navLinks.map((link, index) => (
+                  <motion.div
                     key={link.label}
-                    href={link.href}
-                    className="block px-4 py-3 text-gray-700 hover:bg-accent/10 hover:text-accent rounded-md transition-all duration-200"
-                    onClick={() => setMobileMenuOpen(false)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ delay: index * 0.05 }}
                   >
-                    {link.label}
-                  </Link>
+                    <Link
+                      href={link.href}
+                      className="block px-4 py-3 text-gray-700 hover:bg-accent/10 hover:text-accent rounded-md transition-all duration-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
                 ))}
-                <a
+                <motion.a
                   href="https://forum.santricyber.dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block px-4 py-3 bg-accent text-white font-semibold rounded-md hover:bg-green-700 transition-all duration-300 text-center mt-4"
                   onClick={() => setMobileMenuOpen(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   Join Forum
-                </a>
+                </motion.a>
               </div>
             </motion.div>
           )}
