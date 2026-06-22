@@ -90,7 +90,7 @@ export default function Services() {
                   rotate: -30,
                   scale: 0.5,
                 }}
-                whileInView={{
+                animate={{
                   opacity: 1,
                   x: 0,
                   rotate: 0,
@@ -100,10 +100,9 @@ export default function Services() {
                   type: 'spring',
                   stiffness: 70,
                   damping: 14,
-                  delay: index * 0.1,
+                  delay: 0.3 + (index * 0.1),
                   duration: 0.8,
                 }}
-                viewport={{ once: true, amount: 0.3 }}
                 whileHover={{
                   scale: 1.08,
                   y: -20,
