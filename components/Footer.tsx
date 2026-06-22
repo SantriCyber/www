@@ -99,7 +99,7 @@ export default function Footer() {
 								<img
 									src="/assets/img/logo.png"
 									alt="SantriCyber"
-									className="h-12 mb-4"
+									className="h-36 mb-4"
 									loading="lazy"
 								/>
 								<p className="text-gray-400 text-sm leading-relaxed">
