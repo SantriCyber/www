@@ -66,9 +66,9 @@ export default function CTA() {
           <motion.div
             initial={{
               opacity: 0,
-              x: -300,
-              rotate: -30,
-              scale: 0.5,
+              x: -150,
+              rotate: -20,
+              scale: 0.7,
             }}
             whileInView={{
               opacity: 1,
@@ -96,9 +96,9 @@ export default function CTA() {
           <motion.div
             initial={{
               opacity: 0,
-              x: 300,
-              rotate: 30,
-              scale: 0.5,
+              x: 150,
+              rotate: 20,
+              scale: 0.7,
             }}
             whileInView={{
               opacity: 1,
@@ -119,7 +119,7 @@ export default function CTA() {
               href="https://santricyber.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-lg hover:shadow-xl transition-all group relative overflow-hidden block w-fit"
+              className="px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-lg hover:shadow-xl transition-all group relative overflow-hidden inline-block"
               whileHover={{ scale: 1.08, rotate: 2 }}
               whileTap={{ scale: 0.92, rotate: -2 }}
             >
