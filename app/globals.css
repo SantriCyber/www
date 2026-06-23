@@ -31,15 +31,15 @@ section {
 
 /* Button Styles */
 .btn-primary {
-  @apply px-8 py-3 bg-accent text-white font-semibold rounded transition-all duration-300 hover:bg-green-700 hover:shadow-lg;
+  @apply px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 text-sm sm:text-base bg-accent text-white font-semibold rounded transition-all duration-300 hover:bg-green-700 hover:shadow-lg;
 }
 
 .btn-secondary {
-  @apply px-8 py-3 border-2 border-accent text-accent font-semibold rounded transition-all duration-300 hover:bg-accent hover:text-white;
+  @apply px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 text-sm sm:text-base border-2 border-accent text-accent font-semibold rounded transition-all duration-300 hover:bg-accent hover:text-white;
 }
 
 .btn-outline {
-  @apply px-8 py-3 border-2 border-gray-300 text-gray-900 font-semibold rounded transition-all duration-300 hover:border-accent hover:text-accent;
+  @apply px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 text-sm sm:text-base border-2 border-gray-300 text-gray-900 font-semibold rounded transition-all duration-300 hover:border-accent hover:text-accent;
 }
 
 /* Gradient Text */

@@ -78,11 +78,11 @@ export default function Footer() {
 
 	return (
 		<footer
-			className="relative h-[720px] w-full bg-gray-900"
+			className="relative w-full bg-gray-900"
 			style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
 		>
-			<div className="fixed bottom-0 h-[720px] w-full bg-gray-900">
-				<div className="sticky top-[calc(100vh-720px)] h-full overflow-y-auto">
+			<div className="relative w-full bg-gray-900">
+				<div className="w-full overflow-y-auto">
 					<div className="relative flex size-full flex-col justify-between gap-5 border-t border-gray-800 px-4 py-8 md:px-12 bg-gray-900">
 						{/* Decorative gradients */}
 						<div

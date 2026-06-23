@@ -119,7 +119,7 @@ export default function CTA() {
               href="https://santricyber.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:shadow-xl transition-all group relative overflow-hidden block"
+              className="px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 text-sm sm:text-base border-2 border-white text-white font-semibold rounded-lg hover:shadow-xl transition-all group relative overflow-hidden block"
               whileHover={{ scale: 1.08, rotate: 2 }}
               whileTap={{ scale: 0.92, rotate: -2 }}
             >
