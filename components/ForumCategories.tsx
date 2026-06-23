@@ -95,11 +95,11 @@ export default function ForumCategories() {
                 rel="noopener noreferrer"
                 initial={{
                   opacity: 0,
-                  x: -300,
-                  rotate: -30,
-                  scale: 0.5,
+                  x: -150,
+                  rotate: -20,
+                  scale: 0.7,
                 }}
-                animate={{
+                whileInView={{
                   opacity: 1,
                   x: 0,
                   rotate: 0,
@@ -112,11 +112,13 @@ export default function ForumCategories() {
                   delay: 0.6 + (index * 0.08),
                   duration: 0.8,
                 }}
-                whileHover={isMobile ? { scale: 1.03 } : {
-                  scale: 1.12,
-                  y: -15,
-                  rotate: 5,
-                  boxShadow: '0 20px 40px rgba(124, 197, 118, 0.4)',
+                viewport={{ once: true, amount: 0.2 }}
+                whileHover={isMobile ? { scale: 1.05 } : {
+                  scale: 1.18,
+                  y: -20,
+                  rotate: 8,
+                  boxShadow: '0 30px 70px rgba(124, 197, 118, 0.7)',
+                  filter: 'brightness(1.2)',
                 }}
                 whileTap={{ scale: 0.95 }}
                 className={`group bg-gradient-to-br ${category.color} p-6 rounded-xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden`}

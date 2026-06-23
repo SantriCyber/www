@@ -86,11 +86,11 @@ export default function Services() {
                 key={index}
                 initial={{
                   opacity: 0,
-                  x: -300,
-                  rotate: -30,
-                  scale: 0.5,
+                  x: -150,
+                  rotate: -20,
+                  scale: 0.7,
                 }}
-                animate={{
+                whileInView={{
                   opacity: 1,
                   x: 0,
                   rotate: 0,
@@ -103,11 +103,13 @@ export default function Services() {
                   delay: 0.3 + (index * 0.1),
                   duration: 0.8,
                 }}
+                viewport={{ once: true, amount: 0.2 }}
                 whileHover={{
-                  scale: 1.08,
-                  y: -20,
-                  rotate: 3,
-                  boxShadow: '0 30px 60px rgba(124, 197, 118, 0.3)',
+                  scale: 1.15,
+                  y: -25,
+                  rotate: 6,
+                  boxShadow: '0 40px 80px rgba(124, 197, 118, 0.6)',
+                  filter: 'brightness(1.15)',
                 }}
                 whileTap={{ scale: 0.92 }}
               >
