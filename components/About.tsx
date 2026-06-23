@@ -3,12 +3,14 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import FloatingBackground from '@/components/ui/FloatingBackground'
 import NeonGlow from '@/components/ui/NeonGlow'
 import MorphingBlob from '@/components/ui/MorphingBlob'
+import ArticleModal from '@/components/ArticleModal'
 
 export default function About() {
+  const [isArticleOpen, setIsArticleOpen] = useState(false)
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -112,15 +114,25 @@ export default function About() {
               About SantriCyber
             </motion.h2>
 
-            <motion.p
-              className="text-lg text-gray-600 mb-6 leading-relaxed"
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Founded in 2007, SantriCyber is dedicated to bridging Islamic education with modern technology. We empower Santri and tech enthusiasts to develop valuable skills in programming, cybersecurity, and AI.
-            </motion.p>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                Founded in 2007, SantriCyber is dedicated to bridging Islamic education with modern technology. We empower Santri and tech enthusiasts to develop valuable skills in programming, cybersecurity, and AI.
+              </p>
+              <motion.button
+                onClick={() => setIsArticleOpen(true)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-accent font-semibold hover:text-green-700 transition-colors flex items-center gap-2 group"
+              >
+                Read Our Full Story
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </motion.button>
+            </motion.div>
 
             <motion.div
               className="space-y-4 mb-8"
@@ -162,6 +174,12 @@ export default function About() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Article Modal */}
+      <ArticleModal
+        isOpen={isArticleOpen}
+        onClose={() => setIsArticleOpen(false)}
+      />
     </section>
   )
 }

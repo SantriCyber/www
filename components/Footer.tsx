@@ -43,7 +43,7 @@ export default function Footer() {
 			links: [
 				{ title: 'Forum', href: 'https://forum.santricyber.dev' },
 				{ title: 'GitHub', href: 'https://github.com/SantriCyber' },
-				{ title: 'Blog', href: 'https://santricyber.org' },
+				{ title: 'Blog', href: 'https://santricyber.dev' },
 				{ title: 'Contact Us', href: '#' },
 			],
 		},
@@ -51,7 +51,7 @@ export default function Footer() {
 			label: 'Learning',
 			links: [
 				{ title: 'Programming', href: 'https://forum.santricyber.dev' },
-				{ title: 'Cybersecurity', href: 'https://forum.santricyber.dev' },
+				{ title: 'Cybersecurity', href: 'https://forum.santricyber.dev/c/it-cybersecurity/69' },
 				{ title: 'Islamic Tech', href: 'https://forum.santricyber.dev' },
 				{ title: 'AI & Innovation', href: 'https://forum.santricyber.dev' },
 			],
@@ -157,7 +157,7 @@ export default function Footer() {
 						{/* Footer bottom */}
 						<div className="text-gray-400 flex flex-col items-center justify-between gap-4 border-t border-gray-800 pt-6 text-xs md:flex-row relative z-10">
 							<p>&copy; {currentYear} SantriCyber. All rights reserved.</p>
-							<p>Designed with care by <a href="https://github.com/syafmovic" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">syafmovic</a></p>
+							<p>Designed with BigLove by <a href="https://syandriz.com/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">syafmovic</a></p>
 						</div>
 					</div>
 				</div>
