@@ -295,10 +295,8 @@ export default function Hero() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.5 }}
-            whileHover="hover"
-            whileTap="tap"
           >
-            <Link href="#about" className="btn-secondary block">
+            <Link href="#about" className="btn-secondary inline-block">
               Learn More
             </Link>
           </motion.div>
