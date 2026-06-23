@@ -114,7 +114,7 @@ export default function Footer() {
 												href={link.href}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="p-2 rounded-lg border border-gray-700 hover:border-accent hover:text-accent hover:bg-accent/10 transition-all duration-300"
+												className="p-2 rounded-lg border border-accent text-accent bg-accent/10 hover:border-accent hover:text-white hover:bg-accent/30 transition-all duration-200"
 												aria-label={link.title}
 											>
 												<Icon className="w-4 h-4" />

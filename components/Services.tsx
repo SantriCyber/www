@@ -110,6 +110,7 @@ export default function Services() {
                   rotate: 6,
                   boxShadow: '0 40px 80px rgba(124, 197, 118, 0.6)',
                   filter: 'brightness(1.15)',
+                  transition: { duration: 0.15 }
                 }}
                 whileTap={{ scale: 0.92 }}
               >

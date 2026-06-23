@@ -95,9 +95,9 @@ export default function ForumCategories() {
                 rel="noopener noreferrer"
                 initial={{
                   opacity: 0,
-                  x: -150,
-                  rotate: -20,
-                  scale: 0.7,
+                  x: -80,
+                  rotate: -15,
+                  scale: 0.8,
                 }}
                 whileInView={{
                   opacity: 1,
@@ -113,12 +113,13 @@ export default function ForumCategories() {
                   duration: 0.8,
                 }}
                 viewport={{ once: true, amount: 0.2 }}
-                whileHover={isMobile ? { scale: 1.05 } : {
+                whileHover={isMobile ? { scale: 1.05, transition: { duration: 0.15 } } : {
                   scale: 1.18,
                   y: -20,
                   rotate: 8,
                   boxShadow: '0 30px 70px rgba(124, 197, 118, 0.7)',
                   filter: 'brightness(1.2)',
+                  transition: { duration: 0.15 }
                 }}
                 whileTap={{ scale: 0.95 }}
                 className={`group bg-gradient-to-br ${category.color} p-6 rounded-xl text-white shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden`}

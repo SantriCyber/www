@@ -91,7 +91,11 @@ export default function WhyUs() {
               alt="Why Choose SantriCyber"
               className="w-full rounded-xl shadow-2xl"
               loading="lazy"
-              whileHover={{ scale: 1.03 }}
+              whileHover={{
+                scale: 1.15,
+                rotate: 8,
+                boxShadow: '0 30px 60px rgba(124, 197, 118, 0.5)'
+              }}
               transition={{ duration: 0.4 }}
             />
           </motion.div>

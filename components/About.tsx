@@ -69,15 +69,16 @@ export default function About() {
           {/* Left: Image with parallax */}
           <motion.div
             className="flex justify-center md:block"
-            initial={{ opacity: 0, x: -150, scale: 0.5, rotate: -20 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, x: -120, y: -100, scale: 0.6, rotate: -30 }}
+            whileInView={{ opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 }}
             transition={{
-              duration: 0.9,
+              duration: 1.5,
               type: 'spring',
               stiffness: 60,
-              damping: 20,
+              damping: 18,
+              delay: 0.2,
             }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             style={{ y: imageY }}
           >
             <motion.img
@@ -85,7 +86,11 @@ export default function About() {
               alt="About SantriCyber"
               className="w-full max-w-sm mx-auto drop-shadow-xl"
               loading="lazy"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{
+                scale: 1.15,
+                rotate: 8,
+                boxShadow: '0 30px 60px rgba(124, 197, 118, 0.5)'
+              }}
               transition={{ duration: 0.4 }}
             />
           </motion.div>

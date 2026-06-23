@@ -246,8 +246,8 @@ export default function Hero() {
           initial={{ opacity: 0, filter: 'blur(20px)', y: 50 }}
           animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
           transition={{
-            duration: 1,
-            delay: 0.6,
+            duration: 0.7,
+            delay: 0.3,
             ease: 'easeOut',
           }}
         >
