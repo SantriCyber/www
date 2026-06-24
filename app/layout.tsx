@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'Join SantriCyber to explore programming, cybersecurity, AI, and Islamic knowledge.',
     images: [
       {
-        url: 'https://santri.dev/assets/img/SantriCyberLogo.png',
+        url: 'https://santri.dev/assets/img/SantriCyber.png',
         width: 400,
         height: 395,
         alt: 'SantriCyber Logo',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SantriCyber - Official | Islamic & Tech Learning Hub',
     description: 'Join SantriCyber community today.',
-    images: ['https://santri.dev/assets/img/SantriCyberLogo.png'],
+    images: ['https://santri.dev/assets/img/SantriCyber.png'],
     creator: '@SantriCyber',
   },
   robots: {
@@ -49,7 +49,7 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#7cc576" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link rel="icon" type="image/png" href="/assets/img/SantriCyberLogo.png" />
+        <link rel="icon" type="image/png" href="/assets/img/SantriCyber.png" />
       </head>
       <body>
         {children}

@@ -97,7 +97,7 @@ export default function Footer() {
 							{/* Brand section */}
 							<AnimatedContainer className="w-full max-w-sm space-y-4">
 								<img
-									src="/assets/img/logo.png"
+									src="/assets/img/SantriCyber.png"
 									alt="SantriCyber"
 									className="h-36 mb-4"
 									loading="lazy"

@@ -224,7 +224,7 @@ export default function Hero() {
             whileHover={logoHover}
           >
           <motion.img
-            src="/assets/img/SantriCyberLogo.png"
+            src="/assets/img/SantriCyber.png"
             alt="SantriCyber"
             className="mx-auto mb-8 cursor-pointer drop-shadow-lg w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
             loading="eager"

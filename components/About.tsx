@@ -84,7 +84,7 @@ export default function About() {
             style={{ y: imageY }}
           >
             <motion.img
-              src="/assets/img/SantriCyberLogo.png"
+              src="/assets/img/SantriCyber.png"
               alt="About SantriCyber"
               className="w-full max-w-sm mx-auto drop-shadow-xl"
               loading="lazy"
