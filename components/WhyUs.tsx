@@ -16,7 +16,7 @@ export default function WhyUs() {
     {
       number: '1',
       title: 'Trusted Community',
-      description: 'Join thousands of learners in a safe, supportive environment',
+      description: 'A growing community of Muslim tech learners in a safe, supportive environment',
     },
     {
       number: '2',

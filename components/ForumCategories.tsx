@@ -29,12 +29,12 @@ export default function ForumCategories() {
   }, [])
 
   const categories = [
-    { name: 'DISCUSS of ISLAMIC', Icon: BookOpen, color: 'from-blue-400 to-blue-600' },
-    { name: 'PILLAR of IMAN and ISLAM', Icon: Heart, color: 'from-purple-400 to-purple-600' },
-    { name: 'FAMILY and SOCIETY', Icon: Users, color: 'from-pink-400 to-pink-600' },
-    { name: 'LIFESTYLE AND HEALTH', Icon: Zap, color: 'from-green-400 to-green-600' },
-    { name: 'EDUCATIONAL', Icon: GraduationCap, color: 'from-yellow-400 to-yellow-600' },
-    { name: 'IT CyberSecurity', Icon: Shield, color: 'from-red-400 to-red-600' },
+    { name: 'Islamic Discussion', Icon: BookOpen, color: 'from-blue-400 to-blue-600' },
+    { name: 'Pillars of Faith', Icon: Heart, color: 'from-purple-400 to-purple-600' },
+    { name: 'Family and Society', Icon: Users, color: 'from-pink-400 to-pink-600' },
+    { name: 'Lifestyle and Health', Icon: Zap, color: 'from-green-400 to-green-600' },
+    { name: 'Educational', Icon: GraduationCap, color: 'from-yellow-400 to-yellow-600' },
+    { name: 'IT & Cybersecurity', Icon: Shield, color: 'from-red-400 to-red-600' },
     { name: 'BAZAR MARKET', Icon: ShoppingCart, color: 'from-orange-400 to-orange-600' },
     { name: 'Pesantren', Icon: Building, color: 'from-indigo-400 to-indigo-600' },
   ]
