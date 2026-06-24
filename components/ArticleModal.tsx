@@ -17,7 +17,7 @@ const articleContent = {
     sections: [
       {
         heading: 'The Beginning',
-        content: `It all started with a simple intention — to spread the knowledge of Islam. At Pondok Pesantren Fatihul Ulum Al-Mahfudz, Manggisan, East Java, an idea took root: what if Islamic outreach could be done in the digital world? The reach would be wider, the spread faster, and the time unlimited.
+        content: `It all started with a simple intention by santri — to spread the knowledge of Islam. At Pesantren Fatihul Ulum Al-Mahfudz, an idea took root: what if Islamic outreach could be done in the digital world? The reach would be wider, the spread faster, and the time unlimited.
 
 Instead of finding a pulpit, the internet became the path.
 
@@ -84,7 +84,7 @@ Not in a name. Not in a logo. But in every person who learns, then teaches. Who 
     sections: [
       {
         heading: 'Awal Mula',
-        content: `Semuanya bermula dari satu niat yang sederhana — menyebarkan ilmu agama. Di Pondok Pesantren Fatihul Ulum Al-Mahfudz, Manggisan, Jawa Timur, tumbuh sebuah gagasan: bagaimana kalau dakwah dilakukan di dunia digital? Jangkauannya lebih luas, penyebarannya lebih cepat, dan waktunya tidak terbatas.
+        content: `Semuanya bermula dari satu niat yang sederhana oleh santri — menyebarkan ilmu agama. Di Pesantren Fatihul Ulum Al-Mahfudz, tumbuh sebuah gagasan: bagaimana kalau dakwah dilakukan di dunia digital? Jangkauannya lebih luas, penyebarannya lebih cepat, dan waktunya tidak terbatas.
 
 Alih-alih menemukan mimbar, justru internet yang menjadi jalannya.
 
